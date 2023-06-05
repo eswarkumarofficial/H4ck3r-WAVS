@@ -4,7 +4,7 @@
 
 This is a Web Application Vulnerability Scanner tool created using Python......
 
-It contains three python file ( crawler, mapper, tester )
+
 
 Crawling: Scans the entire website and discovers its pages
 
