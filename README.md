@@ -6,14 +6,11 @@ This is a Web Application Vulnerability Scanner tool created using Python......
 
 It contains three python file ( crawler, mapper, tester )
 
-Crawler - It is used to crawl the targeted Website.
+Crawling: Scans the entire website and discovers its pages
 
-Mapper - It is used to map the target Website.
+Mapping: Builds a sitemap and identifies inputs and parameters
 
-Tester - It is used to test the URL for Vulnerabilites.
-
-Navigate to the H4ck3r WAVS folder/directory to find the report.
-
+Testing: Injects payloads and analyzes responses for vulnerabilities
 
 
 
@@ -33,3 +30,6 @@ pip install requirements.txt
   
 # To Test for vulnerabilities
   python tester.py
+  
+  
+**Navigate to the H4ck3r WAVS folder/directory to find the report**
