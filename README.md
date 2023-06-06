@@ -20,6 +20,8 @@ git clone https://github.com/eswarkumarofficial/H4ck3r-WAVS
 
 cd H4ck3r-WAVS
 
+sudo chmod +x * 
+
 pip install -r requirements.txt
 
 # To Crawl 
