@@ -34,4 +34,4 @@ pip install -r requirements.txt
   python3 tester.py
   
   
-**Navigate to the H4ck3r WAVS folder/directory to find the report**
+**Navigate to the H4ck3r-WAVS folder/directory to find the report**
