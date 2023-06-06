@@ -1,8 +1,18 @@
 import requests
+import pyfiglet as pyfiglet
+from datetime import datetime
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
-report = open("Crawler.txt", "a")
+ascii_banner = pyfiglet.figlet_format("H4ck3r - wavs")
+print(ascii_banner)
+print("                                                  "   + "by Eswar H4ck3r" + "\n")
+
+print("-" * 60)
+print(str(datetime.now()))
+print("-" * 60)
+
+print("\n<<<<<<<<<< Crawler >>>>>>>>>>\n")
 
 def crawl(url):
     visited_urls = set()  # To keep track of visited URLs
@@ -25,7 +35,7 @@ def crawl(url):
         soup = BeautifulSoup(response.content, 'html.parser')
 
         # Process the current URL here...
-        report.write("Visited URL: " + current_url + "\n")
+        print("Visited URL: " + current_url + "\n")
 
         # Find and enqueue new URLs to visit
         links = soup.find_all('a')
@@ -40,5 +50,3 @@ def crawl(url):
 # Example usage
 target_url = input("Enter the Website to Crawl: ")
 crawl(target_url)
-
-report.close()
