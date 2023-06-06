@@ -5,10 +5,13 @@ from bs4 import BeautifulSoup
 
 ascii_banner = pyfiglet.figlet_format("H4ck3r - wavs")
 print(ascii_banner)
+print("                                                  "   + "by Eswar H4ck3r" + "\n")
 
 print("-" * 60)
 print(str(datetime.now()))
 print("-" * 60)
+
+print("\n<<<<<<<<<< Tester >>>>>>>>>>\n")
 
 report = open("Report.txt", "w")
 
