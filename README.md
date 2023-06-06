@@ -2,7 +2,7 @@
 
 # WEB APPLICATION VULNERABILITY SCANNER
 
-This is a Web Application Vulnerability Scanner tool created using Python......
+This is a Web Application Vulnerability Scanner tool created using Python.
 
 
 
@@ -20,7 +20,7 @@ git clone https://github.com/eswarkumarofficial/H4ck3r-WAVS
 
 cd H4ck3r-WAVS
 
-pip install requirements.txt
+pip install -r requirements.txt
 
 # To Crawl 
   python crawler.py
