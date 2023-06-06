@@ -23,13 +23,13 @@ cd H4ck3r-WAVS
 pip install -r requirements.txt
 
 # To Crawl 
-  python crawler.py
+  python3 crawler.py
   
 # To Map
-  python mapper.py
+  python3 mapper.py
   
 # To Test for vulnerabilities
-  python tester.py
+  python3 tester.py
   
   
 **Navigate to the H4ck3r WAVS folder/directory to find the report**
