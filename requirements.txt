@@ -8,4 +8,4 @@ urllib.parse
 urljoin
 urlparse
 colorama
-Fore, Style
+
