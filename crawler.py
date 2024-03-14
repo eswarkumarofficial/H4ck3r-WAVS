@@ -19,33 +19,40 @@ def crawl(url):
     visited_urls = set()  # To keep track of visited URLs
     queue = [url]  # Queue for URLs to visit
 
-    while queue:
-        current_url = queue.pop(0)
-        visited_urls.add(current_url)
+    # Use the URL to create the output file name
+    output_file = f"{url.replace('http://', '').replace('https://', '').replace('/', '_')}_Crawler.txt"
 
-        try:
-            response = requests.get(current_url)
-        except requests.exceptions.RequestException:
-            # Handle any request errors
-            continue
+    with open(output_file, 'w') as file:
+        while queue:
+            current_url = queue.pop(0)
+            visited_urls.add(current_url)
 
-        print(f"Visited URL: {current_url}")
-        print(f"Status Code: {highlight_status_code(response.status_code)}\n")
+            try:
+                response = requests.get(current_url)
+            except requests.exceptions.RequestException:
+                # Handle any request errors
+                continue
 
-        if response.status_code != 200:
-            # Handle non-OK responses
-            continue
+            status_code = response.status_code
+            print(f"{current_url} | {highlight_status_code(status_code)}")
 
-        soup = BeautifulSoup(response.content, 'html.parser')
+            # Write information to the file
+            file.write(f"{current_url} | ")
+            file.write(f"{status_code}\n\n")
 
-        links = soup.find_all('a')
-        for link in links:
-            href = link.get('href')
-            if href and href.startswith(('http://', 'https://')):
-                absolute_url = urljoin(current_url, href)
-                if absolute_url not in visited_urls and absolute_url not in queue:
-                    queue.append(absolute_url)
+            if status_code != 200:
+                # Handle non-OK responses
+                continue
 
+            soup = BeautifulSoup(response.content, 'html.parser')
+
+            links = soup.find_all('a')
+            for link in links:
+                href = link.get('href')
+                if href and href.startswith(('http://', 'https://')):
+                    absolute_url = urljoin(current_url, href)
+                    if absolute_url not in visited_urls and absolute_url not in queue:
+                        queue.append(absolute_url)
 
 def highlight_status_code(status_code):
     if 200 <= status_code < 300:
@@ -54,11 +61,11 @@ def highlight_status_code(status_code):
         return f"{Fore.BLUE}{status_code}{Style.RESET_ALL}"  # Blue for redirection
     elif 400 <= status_code < 500:
         return f"{Fore.YELLOW}{status_code}{Style.RESET_ALL}"  # Yellow for client errors
-    elif 500 <= status_code:
+    elif 500 <= status_code < 599:
         return f"{Fore.RED}{status_code}{Style.RESET_ALL}"  # Red for server errors
     else:
         return str(status_code)
 
-
 target_url = input("Enter the Website to Crawl: ")
+
 crawl(target_url)
