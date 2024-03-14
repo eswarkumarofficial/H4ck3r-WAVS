@@ -1,1 +1,11 @@
 pyfiglet
+datetime
+requests
+bs4 
+BeautifulSoup
+os
+urllib.parse 
+urljoin
+urlparse
+colorama
+Fore, Style
